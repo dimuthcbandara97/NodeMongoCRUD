@@ -33,15 +33,59 @@ exports.create = (req, res) => {
 
 // retreive and return all users
 exports.find = (req, res) => {
-     
+        Userdb.find()
+        .then(user => {
+            res.send(user)
+          })
+        .catch(err => {
+              res.status(500).send({
+                  message: err.message || "Some error occurred while retrieving users."
+              })
+          })
+
 }
 
 // update a new identifed user by user id
 exports.update = (req, res) => {
+    if(!req.body){
+        return res.status(404).send({message: "Data to update can not be empty."});
+    }
 
+    const id = req.params.id
+    Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    .then(data => {
+        if(!data){
+            res.status(404).send({message: "can not find user"})
+        }else{
+            res.send(data)
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while updating the user."
+        })
+    })
 }
 
 // delete a user by user id
 exports.delete = (req, res) => {
+    
+    if(!req.body){
+        return res.status(404).send({message: "Data to update can not be empty."});
+    }
 
+    const id = req.params.id
+    Userdb.findByIdAndDelete(id)
+    .then(data => {
+        if(!data){
+            res.status(404).send({message: "can not find user"})
+        }else{
+            res.send(data)
+        }
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while deleting the user."
+        })
+    })
 }
