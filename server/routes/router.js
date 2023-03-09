@@ -7,6 +7,8 @@ const services = require('../services/render')
 const controller = require('../controller/controller')
 const exercise_controller = require('../controller/exercise_controller')
 const nutrition_controller = require('../controller/nutrition_controller')
+const meditation_controller = require('../controller/meditation_controller')
+const networking_controller = require('../controller/networking_controller')
 
 /***
  * 
@@ -44,5 +46,23 @@ route.post('/api/nutrition',nutrition_controller.create)
 route.get('/api/nutrition',nutrition_controller.find)
 route.put('/api/nutrition/:id',nutrition_controller.update)
 route.delete('/api/nutrition/:id',nutrition_controller.delete)
+
+// API routes for Exercise data
+route.post('/api/exercise',exercise_controller.create)
+route.get('/api/exercise',exercise_controller.find)
+route.put('/api/exercise/:id',exercise_controller.update)
+route.delete('/api/exercise/:id',exercise_controller.delete)
+
+// API routes for Meditation data
+route.post('/api/meditation',meditation_controller.create)
+route.get('/api/meditation',meditation_controller.find)
+route.put('/api/meditation/:id',meditation_controller.update)
+route.delete('/api/meditation/:id',meditation_controller.delete)
+
+// API routes for Networking data
+route.post('/api/networking',networking_controller.create)
+route.get('/api/networking',networking_controller.find)
+route.put('/api/networking/:id',networking_controller.update)
+route.delete('/api/networking/:id',networking_controller.delete)
 
 module.exports = route
