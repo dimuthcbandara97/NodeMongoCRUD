@@ -30,6 +30,7 @@ exports.update_user = (req, res) => {
     })
 }
 
+// Nutrition
 
 exports.nutritionRoutes = (req,res) => {
     // Make a get request top /api/users

@@ -1,4 +1,5 @@
-let Userdb = require('../model/model')
+// let Userdb = require('../model/model')
+let foodDB = require('../model/nutrition_model')
 
 // create and save new user
 
@@ -12,11 +13,11 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new Userdb({
-        name: req.body.name, // request body name
-        email: req.body.email, // request body email
-        gender: req.body.gender,
-        status: req.body.status
+    const user = new foodDB({
+        food_name: req.body.food_name, 
+        value: req.body.value, 
+        recomended_by: req.body.recomended_by,
+        why_recomended: req.body.why_recomended
     })
 
     // save user in the database
@@ -36,7 +37,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            Userdb.findById(id)
+            foodDB.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -46,7 +47,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            Userdb.find()
+            foodDB.find()
         .then(user => {
             res.send(user)
           })

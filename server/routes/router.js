@@ -2,7 +2,11 @@ const express = require('express');
 const route = express.Router()
 
 const services = require('../services/render')
+
+// importing all controllers
 const controller = require('../controller/controller')
+const exercise_controller = require('../controller/exercise_controller')
+const nutrition_controller = require('../controller/nutrition_controller')
 
 /***
  * 
@@ -36,9 +40,9 @@ route.put('/api/users/:id',controller.update)
 route.delete('/api/users/:id',controller.delete)
 
 // API routes for Nutrition data
-route.post('/api/nutrition',controller.create)
-route.get('/api/nutrition',controller.find)
-route.put('/api/nutrition/:id',controller.update)
-route.delete('/api/nutrition/:id',controller.delete)
+route.post('/api/nutrition',nutrition_controller.create)
+route.get('/api/nutrition',nutrition_controller.find)
+route.put('/api/nutrition/:id',nutrition_controller.update)
+route.delete('/api/nutrition/:id',nutrition_controller.delete)
 
 module.exports = route

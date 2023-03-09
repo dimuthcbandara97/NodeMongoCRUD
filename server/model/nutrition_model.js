@@ -1,35 +1,14 @@
 const mongoose = require('mongoose');
 
-// var schema = new mongoose.Schema({
-    // name:{
-    //     type:String,
-    //     // required:true
-    // },
-    // email:{
-    //     type:String,
-    //     // required:true,
-    //     // unique:true
-    // },
-//     name: String,
-//     email: String,
-//     gender: String,
-//     status: String
-// });
-
-// const Userdb = mongoose.model('uderdb',schema)
-
-// module.exports= Userdb;
-
-// user data
 
 var schema = new mongoose.Schema({
-    name: String,
-    email: String,
-    gender: String,
-    status: String
+    food_name: String,
+    value: String,
+    recomended_by: String,
+    why_recomended: String
 });
 
 
-const Userdb = mongoose.model('uderdb',schema)
+const foodDB = mongoose.model('foodDB',schema)
 
-module.exports= Userdb;
+module.exports= foodDB;
