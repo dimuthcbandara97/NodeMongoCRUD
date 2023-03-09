@@ -1,4 +1,4 @@
-var Userdb = require('../model/model')
+let Userdb = require('../model/model')
 
 // create and save new user
 
