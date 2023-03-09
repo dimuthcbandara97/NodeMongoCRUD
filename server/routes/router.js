@@ -11,6 +11,7 @@ const controller = require('../controller/controller')
  */
 
 route.get('/',services.homeRoutes)
+route.get('/',services.nutritionRoutes)
 
 
 /***
