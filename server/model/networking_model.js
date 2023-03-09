@@ -23,13 +23,13 @@ const mongoose = require('mongoose');
 // user data
 
 var schema = new mongoose.Schema({
-    name: String,
-    email: String,
+    competitor_name: String,
     gender: String,
-    status: String
+    workouts: String,
+    performance: String
 });
 
 
-const Userdb = mongoose.model('uderdb',schema)
+const networkDB = mongoose.model('networkDB',schema)
 
-module.exports= Userdb;
+module.exports= networkDB;

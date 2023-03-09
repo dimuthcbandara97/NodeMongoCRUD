@@ -1,4 +1,7 @@
-let Userdb = require('../model/model')
+// let Userdb = require('../model/model')
+// let foodDB = require('../model/nutrition_model')
+let networkDB = require('../model/networking_model')
+
 
 // create and save new user
 
@@ -12,11 +15,11 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new Userdb({
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        status: req.body.status
+    const user = new networkDB({
+        competitor_name: req.body.competitor_name, 
+        gender: req.body.gender, 
+        workouts: req.body.workouts,
+        performance: req.body.performance
     })
 
     // save user in the database
@@ -36,7 +39,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            Userdb.findById(id)
+            foodDB.networkDB(id)
             .then(user => {
                 res.send(user)
               })
@@ -46,7 +49,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            Userdb.find()
+            foodDB.find()
         .then(user => {
             res.send(user)
           })
