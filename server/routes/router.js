@@ -36,8 +36,8 @@ route.put('/api/users/:id',controller.update)
 route.delete('/api/users/:id',controller.delete)
 
 // API routes for Nutrition data
-route.post('/nutrition/users',controller.create)
-route.get('/nutrition/users',controller.find)
+route.post('/api/nutrition',controller.create)
+route.get('/api/nutrition',controller.find)
 route.put('/api/nutrition/:id',controller.update)
 route.delete('/api/nutrition/:id',controller.delete)
 
