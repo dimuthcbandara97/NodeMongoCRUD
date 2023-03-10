@@ -1,4 +1,5 @@
-let Userdb = require('../model/model')
+// let Userdb = require('../model/model')
+let exercisedb = require('../model/exercise_model')
 
 // create and save new user
 
@@ -12,11 +13,11 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new Userdb({
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        status: req.body.status
+    const user = new exercisedb({
+        exercise_name: req.body.exercise_name,
+        exercise_type: req.body.exercise_type,
+        instructor: req.body.instructor,
+        notes: req.body.notes
     })
 
     // save user in the database
@@ -36,7 +37,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            Userdb.findById(id)
+            exercisedb.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -46,7 +47,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            Userdb.find()
+            exercisedb.find()
         .then(user => {
             res.send(user)
           })

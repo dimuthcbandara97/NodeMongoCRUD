@@ -49,7 +49,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            foodDB.find()
+            networkDB.find()
         .then(user => {
             res.send(user)
           })
