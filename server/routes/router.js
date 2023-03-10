@@ -18,6 +18,9 @@ const networking_controller = require('../controller/networking_controller')
 
 route.get('/',services.homeRoutes)
 route.get('/',services.nutritionRoutes)
+route.get('/',services.networkingRoutes)
+route.get('/',services.exerciseRoutes)
+route.get('/',services.meditationRoutes)
 
 
 /***

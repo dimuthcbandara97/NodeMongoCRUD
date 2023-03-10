@@ -1,4 +1,4 @@
-let Userdb = require('../model/model')
+let meditationdb = require('../model/meditation_model')
 
 // create and save new user
 
@@ -12,11 +12,11 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new Userdb({
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        status: req.body.status
+    const user = new meditationdb({
+        meditation_name: req.body.meditation_name,
+        meditation_type: req.body.meditation_type,
+        instructor: req.body.instructor,
+        notes: req.body.notes
     })
 
     // save user in the database
@@ -36,7 +36,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            Userdb.findById(id)
+            meditationdb.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -46,7 +46,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            Userdb.find()
+            meditationdb.find()
         .then(user => {
             res.send(user)
           })
