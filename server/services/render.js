@@ -82,6 +82,18 @@ exports.networkingRoutes = (req,res) => {
     }).catch(err=>{
 
     })
-    
-    
+
+}
+
+// Timer Routes
+exports.timerRoutes = (req,res) => {
+    // Make a get request top /api/users
+    axios.get('http://localhost:3000/api/timer')
+ .then(function (response) {
+        // console.log(response.data);
+        res.render('index',{users: response.data});
+    }).catch(err=>{
+
+    })
+
 }
