@@ -1,5 +1,4 @@
-
-let foodDB = require('../model/nutrition_model')
+let progressdb = require('../model/progress_model')
 
 // create and save new user
 
@@ -13,11 +12,11 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new foodDB({
-        food_name: req.body.food_name, 
-        value: req.body.value, 
-        recomended_by: req.body.recomended_by,
-        why_recomended: req.body.why_recomended
+    const user = new progressdb({
+        name: req.body.name,
+        email: req.body.email,
+        gender: req.body.gender,
+        status: req.body.status
     })
 
     // save user in the database
@@ -37,7 +36,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            foodDB.findById(id)
+            progressdb.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -47,7 +46,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            foodDB.find()
+            progressdb.find()
         .then(user => {
             res.send(user)
           })
@@ -59,6 +58,7 @@ exports.find = (req, res) => {
         }
 
 }
+// Modify above code to suit a login form
 
 // update a new identifed user by user id
 exports.update = (req, res) => {
@@ -67,7 +67,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    foodDB.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    progressdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -90,7 +90,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    foodDB.findByIdAndDelete(id)
+    progressdb.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})

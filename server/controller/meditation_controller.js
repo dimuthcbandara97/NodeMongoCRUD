@@ -66,7 +66,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    meditationdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -89,7 +89,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndDelete(id)
+    meditationdb.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})

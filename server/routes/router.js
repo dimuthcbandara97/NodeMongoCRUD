@@ -11,6 +11,7 @@ const meditation_controller = require('../controller/meditation_controller')
 const networking_controller = require('../controller/networking_controller')
 const timer_controller = require('../controller/timer_controller')
 
+
 /***
  * 
  * @Description Root route
@@ -70,10 +71,11 @@ route.get('/api/networking',networking_controller.find)
 route.put('/api/networking/:id',networking_controller.update)
 route.delete('/api/networking/:id',networking_controller.delete)
 
-// API rputes for timer 
+// API routes for timer 
 route.post('/api/timer',timer_controller.create)
 route.get('/api/timer',timer_controller.find)
 route.put('/api/timer/:id',timer_controller.update)
 route.delete('/api/timer/:id',timer_controller.delete)
+
 
 module.exports = route

@@ -1,32 +1,22 @@
 const mongoose = require('mongoose');
 
-// var schema = new mongoose.Schema({
-    // name:{
-    //     type:String,
-    //     // required:true
-    // },
-    // email:{
-    //     type:String,
-    //     // required:true,
-    //     // unique:true
-    // },
-//     name: String,
-//     email: String,
-//     gender: String,
-//     status: String
-// });
-
-// const Userdb = mongoose.model('uderdb',schema)
-
-// module.exports= Userdb;
-
-// user data
 
 var schema = new mongoose.Schema({
     timer_name: String,
-    time_period: String,
+    time_period: {
+        type: Number,
+        get: function(v) {
+            return parseFloat(v).toFixed(2);
+        },
+        set: function(v) {
+            return parseFloat(v).toFixed(2);
+        }
+    },
+    future_date: {
+        type: Date,
+        required: true
+    }
 });
-
 
 const timerdb = mongoose.model('timerdb',schema)
 

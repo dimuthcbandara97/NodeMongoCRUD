@@ -1,5 +1,5 @@
-// let Userdb = require('../model/model')
-// let foodDB = require('../model/nutrition_model')
+
+
 let networkDB = require('../model/networking_model')
 
 
@@ -69,7 +69,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    networkDB.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -92,7 +92,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndDelete(id)
+    networkDB.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})

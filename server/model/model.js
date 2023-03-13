@@ -19,3 +19,6 @@ const Userdb = mongoose.model('uderdb',schema)
 
 module.exports= Userdb;
 
+
+// implement the get user method and login method
+

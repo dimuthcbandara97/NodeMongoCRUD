@@ -17,7 +17,7 @@ exports.create = (req, res) => {
     const user = new timerdb({
         timer_name: req.body.timer_name, 
         time_period: req.body.time_period, 
-
+        future_date: req.body.future_date
     })
 
     // save user in the database
@@ -67,7 +67,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    timerdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -90,7 +90,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndDelete(id)
+    timerdb.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})

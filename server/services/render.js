@@ -22,7 +22,7 @@ exports.homeRoutes = (req,res) => {
     // Make a get request top /api/users
     axios.get('http://localhost:3000/api/users')
     .then(function (response) {
-        // console.log(response.data);
+        
         res.render('index',{users: response.data});
     }).catch(err=>{
 
@@ -35,7 +35,7 @@ exports.nutritionRoutes = (req,res) => {
     // Make a get request top /api/users
     axios.get('http://localhost:3000/api/nutrition')
     .then(function (response) {
-        // console.log(response.data);
+        
         res.render('index',{users: response.data});
     }).catch(err=>{
 
@@ -49,7 +49,6 @@ exports.exerciseRoutes = (req,res) => {
     // Make a get request top /api/users
     axios.get('http://localhost:3000/api/exercise')
    .then(function (response) {
-        // console.log(response.data);
         res.render('index',{users: response.data});
     }).catch(err=>{
 
@@ -63,7 +62,6 @@ exports.meditationRoutes = (req,res) => {
     // Make a get request top /api/users
     axios.get('http://localhost:3000/api/meditation')
   .then(function (response) {
-        // console.log(response.data);
         res.render('index',{users: response.data});
     }).catch(err=>{
 
@@ -89,6 +87,19 @@ exports.networkingRoutes = (req,res) => {
 exports.timerRoutes = (req,res) => {
     // Make a get request top /api/users
     axios.get('http://localhost:3000/api/timer')
+ .then(function (response) {
+        // console.log(response.data);
+        res.render('index',{users: response.data});
+    }).catch(err=>{
+
+    })
+
+}
+
+// Progress Routes
+exports.progressRoutes = (req,res) => {
+    // Make a get request top /api/users
+    axios.get('http://localhost:3000/api/progress')
  .then(function (response) {
         // console.log(response.data);
         res.render('index',{users: response.data});

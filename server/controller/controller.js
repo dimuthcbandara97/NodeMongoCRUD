@@ -58,6 +58,7 @@ exports.find = (req, res) => {
         }
 
 }
+// Modify above code to suit a login form
 
 // update a new identifed user by user id
 exports.update = (req, res) => {
