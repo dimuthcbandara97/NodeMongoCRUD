@@ -16,7 +16,8 @@ exports.create = (req, res) => {
         exercise_name: req.body.exercise_name,
         exercise_type: req.body.exercise_type,
         instructor: req.body.instructor,
-        notes: req.body.notes
+        notes: req.body.notes,
+        imageurl: req.body.imageurl
     })
 
     // save user in the database

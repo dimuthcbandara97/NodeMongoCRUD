@@ -4,7 +4,8 @@ var schema = new mongoose.Schema({
     meditation_name: String,
     meditation_type: String,
     instructor: String,
-    notes: String
+    notes: String,
+    imageurl: String,
 });
 
 

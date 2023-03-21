@@ -16,7 +16,8 @@ exports.create = (req, res) => {
         meditation_name: req.body.meditation_name,
         meditation_type: req.body.meditation_type,
         instructor: req.body.instructor,
-        notes: req.body.notes
+        notes: req.body.notes,
+        imageurl:req.body.imageurl
     })
 
     // save user in the database

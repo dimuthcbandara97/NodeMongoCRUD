@@ -4,7 +4,8 @@ var schema = new mongoose.Schema({
     competitor_name: String,
     gender: String,
     workouts: String,
-    performance: String
+    performance: String,
+    imageurl: String,
 });
 
 

@@ -19,7 +19,8 @@ exports.create = (req, res) => {
         competitor_name: req.body.competitor_name, 
         gender: req.body.gender, 
         workouts: req.body.workouts,
-        performance: req.body.performance
+        performance: req.body.performance,
+        imageurl: req.body.imageurl
     })
 
     // save user in the database

@@ -5,7 +5,8 @@ var schema = new mongoose.Schema({
     food_name: String,
     value: String,
     recomended_by: String,
-    why_recomended: String
+    why_recomended: String,
+    imageurl: String,
 });
 
 

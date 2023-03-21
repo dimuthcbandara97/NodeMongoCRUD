@@ -17,7 +17,8 @@ exports.create = (req, res) => {
         food_name: req.body.food_name, 
         value: req.body.value, 
         recomended_by: req.body.recomended_by,
-        why_recomended: req.body.why_recomended
+        why_recomended: req.body.why_recomended,
+        imageurl: req.body.imageurl
     })
 
     // save user in the database
