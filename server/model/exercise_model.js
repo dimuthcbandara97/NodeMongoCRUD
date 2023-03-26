@@ -13,3 +13,4 @@ var schema = new mongoose.Schema({
 const exercisedb = mongoose.model('exercisedb',schema)
 
 module.exports= exercisedb;
+

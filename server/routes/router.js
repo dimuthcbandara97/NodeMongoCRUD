@@ -10,7 +10,7 @@ const nutrition_controller = require('../controller/nutrition_controller')
 const meditation_controller = require('../controller/meditation_controller')
 const networking_controller = require('../controller/networking_controller')
 const timer_controller = require('../controller/timer_controller')
-
+const progress_controller = require('../controller/progress_controller')
 
 /***
  * 
@@ -24,7 +24,7 @@ route.get('/',services.networkingRoutes)
 route.get('/',services.exerciseRoutes)
 route.get('/',services.meditationRoutes)
 route.get('/',services.timerRoutes)
-
+route.get('/',services.progressRoutes)
 
 /***
  * 
@@ -77,46 +77,12 @@ route.get('/api/timer',timer_controller.find)
 route.put('/api/timer/:id',timer_controller.update)
 route.delete('/api/timer/:id',timer_controller.delete)
 
+// API routes for progress
+route.post('/api/progress',timer_controller.create)
+route.get('/api/progress',timer_controller.find)
+route.put('/api/progress/:id',timer_controller.update)
+route.delete('/api/progress/:id',timer_controller.delete)
 
 module.exports = route
 
 
-// import Foundation
-// import UIKit
-
-
-// final class ProgressView2: BaseInfoView {
-   
-//      private let barsView = BaseBarsView()
-     
-   
-//      func configure(with items: [BaseBarView.Data]) {
-//          barsView.configureX(with: items)
-//            }
-//        }
-
-
-
-// extension ProgressView{
-   
-//     override func setupViews() {
-//        super.setupViews()
-       
-//        setupView(barsView)
-//    }
-   
-//    override func constaintViews(){
-//        super.constaintViews()
-     
-//        NSLayoutConstraint.activate([
-//         barsView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-//         barsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-//         barsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-//         barsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-//        ])
-//    }
-   
-//    override func configureAppearance(){
-//        super.configureAppearance()
-//    }
-// }
