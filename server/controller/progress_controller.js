@@ -13,10 +13,10 @@ exports.create = (req, res) => {
 
     // new user
     const user = new progressdb({
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        status: req.body.status
+        progress_name: req.body.progress_name,
+        daily_count: req.body.daily_count,
+        date: req.body.date,
+        month : req.body.month
     })
 
     // save user in the database

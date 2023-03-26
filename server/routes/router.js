@@ -78,10 +78,10 @@ route.put('/api/timer/:id',timer_controller.update)
 route.delete('/api/timer/:id',timer_controller.delete)
 
 // API routes for progress
-route.post('/api/progress',timer_controller.create)
-route.get('/api/progress',timer_controller.find)
-route.put('/api/progress/:id',timer_controller.update)
-route.delete('/api/progress/:id',timer_controller.delete)
+route.post('/api/progress',progress_controller.create)
+route.get('/api/progress',progress_controller.find)
+route.put('/api/progress/:id',progress_controller.update)
+route.delete('/api/progress/:id',progress_controller.delete)
 
 module.exports = route
 
