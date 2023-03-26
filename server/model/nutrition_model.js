@@ -7,6 +7,7 @@ var schema = new mongoose.Schema({
     recomended_by: String,
     why_recomended: String,
     imageurl: String,
+    videourl: String
 });
 
 
