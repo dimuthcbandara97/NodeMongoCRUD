@@ -14,10 +14,11 @@ exports.create = (req, res) => {
     // new user
     const user = new Userdb({
         name: req.body.name,
+        password: req.body.password,
         email: req.body.email,
         gender: req.body.gender,
         status: req.body.status,
-        imageurl: req.body.imageurl
+        imageurl: req.body.imageurl,
     })
 
     // save user in the database
