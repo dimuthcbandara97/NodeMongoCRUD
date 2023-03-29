@@ -108,3 +108,16 @@ exports.progressRoutes = (req,res) => {
     })
 
 }
+
+// Progress Routes
+exports.statsRoutes = (req,res) => {
+    // Make a get request top /api/users
+    axios.get('http://localhost:3000/api/stats')
+ .then(function (response) {
+        // console.log(response.data);
+        res.render('index',{users: response.data});
+    }).catch(err=>{
+
+    })
+
+}

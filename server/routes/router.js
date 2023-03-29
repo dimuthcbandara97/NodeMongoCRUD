@@ -11,6 +11,7 @@ const meditation_controller = require('../controller/meditation_controller')
 const networking_controller = require('../controller/networking_controller')
 const timer_controller = require('../controller/timer_controller')
 const progress_controller = require('../controller/progress_controller')
+const stats_controller = require('../controller/stats_controller')
 
 /***
  * 
@@ -25,6 +26,7 @@ route.get('/',services.exerciseRoutes)
 route.get('/',services.meditationRoutes)
 route.get('/',services.timerRoutes)
 route.get('/',services.progressRoutes)
+route.get('/',services.statsRoutes)
 
 /***
  * 
@@ -82,6 +84,12 @@ route.post('/api/progress',progress_controller.create)
 route.get('/api/progress',progress_controller.find)
 route.put('/api/progress/:id',progress_controller.update)
 route.delete('/api/progress/:id',progress_controller.delete)
+
+// API routes for stats
+route.post('/api/stats',stats_controller.create)
+route.get('/api/stats',stats_controller.find)
+route.put('/api/stats/:id',stats_controller.update)
+route.delete('/api/stats/:id',stats_controller.delete)
 
 module.exports = route
 
