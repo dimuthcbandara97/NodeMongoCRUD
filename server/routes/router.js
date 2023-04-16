@@ -91,6 +91,8 @@ route.get('/api/stats',stats_controller.find)
 route.put('/api/stats/:id',stats_controller.update)
 route.delete('/api/stats/:id',stats_controller.delete)
 
+// API routes for sensors
+
 module.exports = route
 
 
