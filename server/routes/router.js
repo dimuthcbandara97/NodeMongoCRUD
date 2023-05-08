@@ -13,6 +13,7 @@ const timer_controller = require('../controller/timer_controller')
 const progress_controller = require('../controller/progress_controller')
 const stats_controller = require('../controller/stats_controller')
 const user_details_controller = require('../controller/userdetailcontroller')
+const favourite_exercises = require('../controller/exercise_controller_favourite')
 
 /***
  * 
@@ -97,6 +98,12 @@ route.post('/api/user_details',user_details_controller.create)
 route.get('/api/user_details',user_details_controller.find)
 route.put('/api/user_details/:id',user_details_controller.update)
 route.delete('/api/user_details/:id',user_details_controller.delete)
+
+// API routes for faourite Exercies
+route.post('/api/favourites',favourite_exercises.create)
+route.get('/api/favourites',favourite_exercises.find)
+route.put('/api/favourites/:id',favourite_exercises.update)
+route.delete('/api/favourites/:id',favourite_exercises.delete)
 
 module.exports = route
 
