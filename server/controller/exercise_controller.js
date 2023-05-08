@@ -18,7 +18,8 @@ exports.create = (req, res) => {
         instructor: req.body.instructor,
         notes: req.body.notes,
         imageurl: req.body.imageurl,
-        videourl: req.body.videourl
+        videourl: req.body.videourl,
+        affecting_area: req.body.affecting_area
     })
 
     // save user in the database

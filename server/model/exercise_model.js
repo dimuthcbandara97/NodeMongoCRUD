@@ -7,7 +7,8 @@ var schema = new mongoose.Schema({
     instructor: String,
     notes: String,
     imageurl: String,
-    videourl: String
+    videourl: String,
+    affecting_area: String,
 });
 
 

@@ -1,4 +1,4 @@
-let Userdb = require('../model/model')
+let UserDetailDb = require('../model/user_detail_model')
 
 // create and save new user
 
@@ -12,12 +12,12 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new Userdb({
-        name: req.body.name,
-        password: req.body.password,
-        email: req.body.email,
-        gender: req.body.gender,
-        imageurl: req.body.imageurl,
+    const user = new UserDetailDb({
+        status: req.body.status,
+        height: req.body.height,
+        weight: req.body.weight,
+        age: req.body.age,
+        fitness_goal: req.body.fitness_goal,
     })
 
     // save user in the database
@@ -37,7 +37,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            Userdb.findById(id)
+            UserDetailDb.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -47,7 +47,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            Userdb.find()
+            UserDetailDb.find()
         .then(user => {
             res.send(user)
           })
@@ -68,7 +68,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    UserDetailDb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -91,7 +91,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    Userdb.findByIdAndDelete(id)
+    UserDetailDb.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})

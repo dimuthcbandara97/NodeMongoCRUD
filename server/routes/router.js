@@ -12,6 +12,7 @@ const networking_controller = require('../controller/networking_controller')
 const timer_controller = require('../controller/timer_controller')
 const progress_controller = require('../controller/progress_controller')
 const stats_controller = require('../controller/stats_controller')
+const user_details_controller = require('../controller/userdetailcontroller')
 
 /***
  * 
@@ -91,7 +92,11 @@ route.get('/api/stats',stats_controller.find)
 route.put('/api/stats/:id',stats_controller.update)
 route.delete('/api/stats/:id',stats_controller.delete)
 
-// API routes for sensors
+// API routes for user  details
+route.post('/api/user_details',user_details_controller.create)
+route.get('/api/user_details',user_details_controller.find)
+route.put('/api/user_details/:id',user_details_controller.update)
+route.delete('/api/user_details/:id',user_details_controller.delete)
 
 module.exports = route
 

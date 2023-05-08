@@ -1,33 +1,32 @@
 const mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    name: {
+    status: {
         type: String,
         required: true
     },
-    password: {
-        type: String,
+    height: {
+        type: Number,
         required: true
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    gender: {
-        type: String,
+    weight: {
+        type: Number,
         required: true
     },
-    imageurl: {
-        type: String,
+    age: {
+        type: Number,
         required: true
     },
+    fitness_goal: {
+        type: String,
+        required: true
+    }
 });
 
 
-const Userdb = mongoose.model('uderdb',schema)
+const UserDetailDb = mongoose.model('userdetail',schema)
 
-module.exports= Userdb;
+module.exports= UserDetailDb;
 
 
 // implement the get user method and login method
