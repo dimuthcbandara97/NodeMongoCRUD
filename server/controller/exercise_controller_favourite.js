@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     }
 
     // new user
-    const user = new exercisedb({
+    const user = new exercisefavouritedb({
         user_name:req.body.user_name,
         exercise_name: req.body.exercise_name,
         exercise_type: req.body.exercise_type,
@@ -40,7 +40,7 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
         if(req.query.id){
             const id = req.query.id
-            exercisedb.findById(id)
+            exercisefavouritedb.findById(id)
             .then(user => {
                 res.send(user)
               })
@@ -50,7 +50,7 @@ exports.find = (req, res) => {
                   })
               })
         }else{
-            exercisedb.find()
+            exercisefavouritedb.find()
         .then(user => {
             res.send(user)
           })
@@ -70,7 +70,7 @@ exports.update = (req, res) => {
     }
 
     const id = req.params.id
-    exercisedb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
+    exercisefavouritedb.findByIdAndUpdate(id, req.body,{useFindAndModify: false})
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
@@ -93,7 +93,7 @@ exports.delete = (req, res) => {
     }
 
     const id = req.params.id
-    exercisedb.findByIdAndDelete(id)
+    exercisefavouritedb.findByIdAndDelete(id)
     .then(data => {
         if(!data){
             res.status(404).send({message: "can not find user"})
