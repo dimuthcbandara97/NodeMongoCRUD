@@ -1,37 +1,68 @@
 let Userdb = require('../model/model')
 
 // create and save new user
-
 exports.create = (req, res) => {
-    // validate the request
-    if(!req.body){
-        res.status(400).send({
+    // Validate the request
+    if (!req.body) {
+        return res.status(400).send({
             message: "Content can not be empty!"
-        })
-        return 
+        });
     }
 
-    // new user
-    const user = new Userdb({
-        name: req.body.name,
-        password: req.body.password,
-        email: req.body.email,
-        gender: req.body.gender,
-        imageurl: req.body.imageurl,
-    })
+    // Validate the data
+    const { name, password, email, gender, imageurl } = req.body;
 
-    // save user in the database
-    user.save(user)
-      .then(data => {
-            // res.send(data)
-            res.redirect('/add-user')
+    if (!name || typeof name !== 'string' || name.trim().length === 0) {
+        return res.status(400).send({
+            message: "Invalid name"
+        });
+    }
+
+    if (!password || typeof password !== 'string' || password.trim().length < 6) {
+        return res.status(400).send({
+            message: "Password must be at least 6 characters"
+        });
+    }
+
+    if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return res.status(400).send({
+            message: "Invalid email"
+        });
+    }
+
+    if (gender !== 'male' && gender !== 'female' && gender !== 'other') {
+        return res.status(400).send({
+            message: "Invalid gender"
+        });
+    }
+
+    if (imageurl && typeof imageurl !== 'string') {
+        return res.status(400).send({
+            message: "Invalid imageurl"
+        });
+    }
+
+    // New user
+    const user = new Userdb({
+        name: name.trim(),
+        password: password.trim(),
+        email: email.trim().toLowerCase(),
+        gender,
+        imageurl: imageurl ? imageurl.trim() : null
+    });
+
+    // Save user in the database
+    user.save()
+        .then(data => {
+            res.redirect('/add-user');
         })
-      .catch(err => {
+        .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while creating the user."
-            })
-        })
-}
+            });
+        });
+};
+
 
 // retreive and return all users
 exports.find = (req, res) => {

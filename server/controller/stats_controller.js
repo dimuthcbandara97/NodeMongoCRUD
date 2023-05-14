@@ -3,34 +3,40 @@ let statsdb = require('../model/stats_model');
 // create and save new user
 
 exports.create = (req, res) => {
-    // validate the request
-    if(!req.body){
-        res.status(400).send({
-            message: "Content can not be empty!"
-        })
-        return 
+    // Validate the request
+    if (!req.body || !req.body.bloodpressure || !req.body.heartrate || !req.body.bmi || !req.body.bodyfat) {
+        return res.status(400).send({
+            message: "Missing required fields"
+        });
     }
 
-    // new user
-    const user = new statsdb({
-        bloodpressure: req.body.bloodpressure,
-        heartrate: req.body.heartrate,
-        bmi: req.body.bmi,
-        bodyfat: req.body.bodyfat
-    })
+    // Validate the data
+    const { bloodpressure, heartrate, bmi, bodyfat } = req.body;
+    if (typeof bloodpressure !== 'number' || typeof heartrate !== 'number' || typeof bmi !== 'number' || typeof bodyfat !== 'number') {
+        return res.status(400).send({
+            message: "Invalid data type"
+        });
+    }
 
-    // save user in the database
-    user.save(user)
-      .then(data => {
-            // res.send(data)
-            res.redirect('/add-user')
+    // New user
+    const user = new statsdb({
+        bloodpressure,
+        heartrate,
+        bmi,
+        bodyfat
+    });
+
+    // Save user in the database
+    user.save()
+        .then(data => {
+            res.redirect('/add-user');
         })
-      .catch(err => {
+        .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while creating the user."
-            })
-        })
-}
+            });
+        });
+};
 
 // retreive and return all users
 exports.find = (req, res) => {
