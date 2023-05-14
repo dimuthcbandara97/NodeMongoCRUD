@@ -4,11 +4,26 @@ let exercisefavouritedb = require('../model/exercise_model_favourite')
 
 exports.create = (req, res) => {
     // validate the request
-    if(!req.body){
-        res.status(400).send({
+    // validate the request
+    if (!req.body) {
+        return res.status(400).send({
             message: "Content can not be empty!"
         })
-        return 
+    }
+
+    // validate request body fields
+    const requiredFields = ["user_name", "exercise_name", "exercise_type", "instructor", "affecting_area"]
+    for (const field of requiredFields) {
+        if (!req.body[field]) {
+            return res.status(400).send({
+                message: `${field} is required.`
+            })
+        }
+    }
+    if (typeof req.body.user_name !== "string") {
+        return res.status(400).send({
+            message: "user_name must be a string."
+        })
     }
 
     // new user

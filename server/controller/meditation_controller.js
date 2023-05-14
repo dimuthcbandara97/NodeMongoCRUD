@@ -4,35 +4,57 @@ let meditationdb = require('../model/meditation_model')
 
 exports.create = (req, res) => {
     // validate the request
-    if(!req.body){
+    if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         })
-        return 
+        return
+    }
+
+    // validate request body fields
+    const { meditation_name, meditation_type, instructor, notes, imageurl, videourl } = req.body
+    if (!meditation_name || !meditation_type || !instructor || !imageurl || !videourl) {
+        res.status(400).send({
+            message: "Missing required fields!"
+        })
+        return
+    }
+    if (typeof meditation_name !== 'string' || typeof meditation_type !== 'string' || typeof instructor !== 'string' || typeof notes !== 'string' || typeof imageurl !== 'string' || typeof videourl !== 'string') {
+        res.status(400).send({
+            message: "Invalid field data type!"
+        })
+        return
+    }
+    if (meditation_name.length > 50 || meditation_type.length > 50 || instructor.length > 50 || notes.length > 500 || imageurl.length > 200 || videourl.length > 200) {
+        res.status(400).send({
+            message: "Invalid field length!"
+        })
+        return
     }
 
     // new user
     const user = new meditationdb({
-        meditation_name: req.body.meditation_name,
-        meditation_type: req.body.meditation_type,
-        instructor: req.body.instructor,
-        notes: req.body.notes,
-        imageurl:req.body.imageurl,
-        videourl: req.body.videourl
+        meditation_name: meditation_name,
+        meditation_type: meditation_type,
+        instructor: instructor,
+        notes: notes,
+        imageurl: imageurl,
+        videourl: videourl
     })
 
     // save user in the database
     user.save(user)
-      .then(data => {
+        .then(data => {
             // res.send(data)
             res.redirect('/add-user')
         })
-      .catch(err => {
+        .catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while creating the user."
             })
         })
 }
+
 
 // retreive and return all users
 exports.find = (req, res) => {
