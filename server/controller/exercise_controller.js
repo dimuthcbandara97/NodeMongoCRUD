@@ -34,7 +34,9 @@ exports.create = (req, res) => {
         imageurl: req.body.imageurl,
         videourl: req.body.videourl,
         affecting_area: req.body.affecting_area,
-        bmi_range: req.body.bmi_range
+        bmi_range: req.body.bmi_range,
+        rep_count: req.body.rep_count,
+        exercise_time: req.body.exercise_time
     })
 
     // save user in the database

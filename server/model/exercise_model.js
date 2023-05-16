@@ -33,8 +33,17 @@ var schema = new mongoose.Schema({
     bmi_range: {
         type: String,
         required: true
+    },
+    rep_count: {
+        type: Number,
+        required: true
+    },
+    exercise_time: {
+        type: Number,
+        required: true
     }
 });
+
 
 
 
