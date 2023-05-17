@@ -39,7 +39,8 @@ exports.create = (req, res) => {
         instructor: instructor,
         notes: notes,
         imageurl: imageurl,
-        videourl: videourl
+        videourl: videourl,
+        fitness_goal: req.body.fitness_goal
     })
 
     // save user in the database

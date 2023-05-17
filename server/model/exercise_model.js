@@ -41,7 +41,11 @@ var schema = new mongoose.Schema({
     exercise_time: {
         type: Number,
         required: true
-    }
+    },
+    fitness_goal: {
+        type: String,
+        required: true
+    },
 });
 
 

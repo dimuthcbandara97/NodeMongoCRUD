@@ -19,7 +19,8 @@ exports.create = (req, res) => {
         recomended_by: req.body.recomended_by,
         why_recomended: req.body.why_recomended,
         imageurl: req.body.imageurl,
-        videourl:req.body.videourl
+        videourl:req.body.videourl,
+        fitness_goal: req.body.fitness_goal
     })
 
     // save user in the database

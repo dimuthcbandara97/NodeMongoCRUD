@@ -2,13 +2,36 @@ const mongoose = require('mongoose');
 
 
 var schema = new mongoose.Schema({
-    food_name: String,
-    value: String,
-    recomended_by: String,
-    why_recomended: String,
-    imageurl: String,
-    videourl: String
+    food_name: {
+        type: String,
+        required: true
+    },
+    value: {
+        type: String,
+        required: true
+    },
+    recomended_by: {
+        type: String,
+        required: true
+    },
+    why_recomended: {
+        type: String,
+        required: true
+    },
+    imageurl: {
+        type: String,
+        required: true
+    },
+    videourl: {
+        type: String,
+        required: true
+    },
+    fitness_goal: {
+        type: String,
+        required: true
+    }
 });
+
 
 
 const foodDB = mongoose.model('foodDB',schema)
