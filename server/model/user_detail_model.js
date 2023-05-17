@@ -20,6 +20,11 @@ var schema = new mongoose.Schema({
     fitness_goal: {
         type: String,
         required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
     }
 });
 

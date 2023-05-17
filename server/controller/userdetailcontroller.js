@@ -18,6 +18,7 @@ exports.create = (req, res) => {
         weight: req.body.weight,
         age: req.body.age,
         fitness_goal: req.body.fitness_goal,
+        email:req.body.email
     })
 
     // save user in the database
