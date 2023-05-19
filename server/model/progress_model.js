@@ -25,6 +25,10 @@ var schema = new mongoose.Schema({
             },
             message: 'Month should be between 1 and 12'
         }
+    },
+    email: {
+        type: String,
+        required: true
     }
 });
 

@@ -16,7 +16,8 @@ exports.create = (req, res) => {
         progress_name: req.body.progress_name,
         daily_count: req.body.daily_count,
         date: req.body.date,
-        month : req.body.month
+        month : req.body.month,
+        email: req.body.email
     })
 
     // save user in the database
